@@ -1,0 +1,691 @@
+﻿/* ==========================================================================
+   CHRISTIAN ANGELO MENDOZA | QGIS Specialist | Professional Dark Mode CSS
+   Font Style: Roboto (Modern Sans-Serif) | Last Updated: 2026
+   ========================================================================== */
+
+/* 1. IMPORT GOOGLE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
+
+/* --- 2. GLOBAL STYLES & VARIABLES --- */
+:root {
+    /* Professional Dark Palette */
+    --bg-body: #121418;
+    --bg-card: #1c1f26;
+    --bg-nav: rgba(18, 20, 24, 0.95);
+    /* Accent & Text Colors */
+    --color-accent: #00d2d3;
+    --color-accent-hover: #00a8a8;
+    --text-primary: #ecf0f1;
+    --text-secondary: #bdc3c7;
+    /* Typography - ROBOTO */
+    --font-main: 'Roboto', sans-serif;
+    /* UI Elements */
+    --border-color: rgba(255, 255, 255, 0.08);
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --shadow-pic: 0 15px 35px rgba(0, 210, 211, 0.25);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    letter-spacing: 0.2px; /* Roboto looks better with a tiny bit of spacing */
+    overflow-x: hidden;
+}
+
+/* Common Section Styling */
+section {
+    padding: 100px 10%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h1, h2, h3 {
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: -0.5px; /* Modern look for sans-serif headings */
+}
+
+h2 {
+    font-size: 2.8rem;
+    margin-bottom: 50px;
+    text-align: center;
+    position: relative;
+    display: block;
+}
+
+    h2::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 4px;
+        background-color: var(--color-accent);
+        margin: 15px auto 0 auto;
+        border-radius: 2px;
+    }
+
+p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    font-weight: 300; /* Roboto light weight for clean look */
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+    a:hover {
+        color: var(--color-accent-hover);
+    }
+
+strong {
+    color: var(--color-accent);
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   --- 3. HEADER & NAVIGATION ---
+   ========================================================================== */
+header {
+    background-color: var(--bg-nav);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+    }
+
+    nav a {
+        color: var(--text-secondary);
+        font-weight: 500;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+        nav a:hover {
+            color: var(--color-accent);
+        }
+
+/* ==========================================================================
+   --- 4. HERO SECTION & FLOATING PROFILE PIC ---
+   ========================================================================== */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    padding-top: 140px;
+    background: radial-gradient(circle at center, #1c1f26 0%, #121418 100%);
+}
+
+.profile-pic-wrapper {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--bg-card);
+    box-shadow: var(--shadow-pic);
+    animation: floatProfilePic 4s ease-in-out infinite;
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@keyframes floatProfilePic {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+        box-shadow: 0 25px 45px rgba(0, 210, 211, 0.4);
+    }
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-transform: none; /* Removed italic for a cleaner Roboto look */
+}
+
+/* ==========================================================================
+   --- 5. TECHNICAL SKILLS GRID ---
+   ========================================================================== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+    .skills-grid > div {
+        background-color: var(--bg-card);
+        padding: 40px;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        transition: transform 0.3s ease;
+    }
+
+        .skills-grid > div:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-accent);
+        }
+
+    .skills-grid h3 {
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+        color: var(--color-accent);
+    }
+
+    .skills-grid ul {
+        list-style: none;
+    }
+
+    .skills-grid li {
+        margin-bottom: 12px;
+        display: flex;
+        align-items: baseline;
+        font-size: 0.95rem;
+    }
+
+        .skills-grid li::before {
+            content: '→';
+            color: var(--color-accent);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+/* ==========================================================================
+   --- 6. PROFESSIONAL EXPERIENCE ---
+   ========================================================================== */
+.job {
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+    .job-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .job-header span {
+        font-weight: 500;
+        font-size: 0.9rem;
+        color: var(--color-accent);
+    }
+
+/* ==========================================================================
+   --- 7. MAP GALLERY WITH PROFESSIONAL EFFECTS ---
+   ========================================================================== */
+.map-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.map-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+    .map-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--color-accent);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .map-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        filter: brightness(0.8);
+    }
+
+    .map-card:hover img {
+        transform: scale(1.05);
+        filter: brightness(1);
+    }
+
+    .map-card p {
+        padding: 15px;
+        margin: 0;
+        font-weight: 500;
+        font-size: 0.95rem;
+        text-align: center;
+    }
+
+    .map-card::before {
+        content: 'GEO-DATA';
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: var(--color-accent);
+        color: var(--bg-body);
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        z-index: 3;
+    }
+
+/* ==========================================================================
+   --- 8. CONTACT & FOOTER ---
+   ========================================================================== */
+#contact {
+    text-align: center;
+    padding: 100px 10%;
+}
+
+    #contact a {
+        font-size: 1.3rem;
+        font-weight: 500;
+        margin: 10px 0;
+        display: inline-block;
+    }
+
+footer {
+    padding: 40px;
+    background: #0d0f12;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   --- 9. RESPONSIVE ---
+   ========================================================================== */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    section {
+        padding: 60px 5%;
+    }
+
+    .job-header {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+/* ==========================================================================
+   CHRISTIAN ANGELO MENDOZA | QGIS Specialist | Professional Dark Mode CSS
+   Font Style: Roboto (Modern Sans-Serif) | Last Updated: 2026
+   ========================================================================== */
+
+/* 1. IMPORT GOOGLE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
+
+/* --- 2. GLOBAL STYLES & VARIABLES --- */
+:root {
+    /* Adjusted Palette: Mas maliwanag nang kaunti ang background */
+    --bg-body: #1e2227; /* Mula sa #121418, ginawang mas light na charcoal */
+    --bg-card: #282d35; /* In-adjust din para tumugma sa body */
+    --bg-nav: rgba(30, 34, 39, 0.98);
+    /* Accent & Text Colors */
+    --color-accent: #00d2d3;
+    --color-accent-hover: #00a8a8;
+    --text-primary: #ffffff; /* Ginawang pure white para sa mas malinaw na contrast */
+    --text-secondary: #cbd5e0;
+    /* Typography - ROBOTO */
+    --font-main: 'Roboto', sans-serif;
+    /* UI Elements */
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --shadow-pic: 0 15px 35px rgba(0, 210, 211, 0.3);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+    overflow-x: hidden;
+}
+
+/* Common Section Styling */
+section {
+    padding: 100px 10%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+h1, h2, h3 {
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    font-size: 2.8rem;
+    margin-bottom: 50px;
+    text-align: center;
+    position: relative;
+    display: block;
+}
+
+    h2::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 4px;
+        background-color: var(--color-accent);
+        margin: 15px auto 0 auto;
+        border-radius: 2px;
+    }
+
+p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    font-weight: 400; /* Roboto normal weight para sa better readability */
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+    a:hover {
+        color: var(--color-accent-hover);
+    }
+
+strong {
+    color: var(--color-accent);
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   --- 3. HEADER & NAVIGATION ---
+   ========================================================================== */
+header {
+    background-color: var(--bg-nav);
+    backdrop-filter: blur(12px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 10%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+    /* ADJUSTED: Pangalan Font Size */
+    nav .brand-name {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        letter-spacing: 0.5px;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+    }
+
+    nav a {
+        color: var(--text-secondary);
+        font-weight: 500;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+        nav a:hover {
+            color: var(--color-accent);
+        }
+
+/* ==========================================================================
+   --- 4. HERO SECTION ---
+   ========================================================================== */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    padding-top: 140px;
+    /* Adjusted Gradient para sa mas maliwanag na bg */
+    background: radial-gradient(circle at center, #282d35 0%, #1e2227 100%);
+}
+
+.profile-pic-wrapper {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--bg-card);
+    box-shadow: var(--shadow-pic);
+    animation: floatProfilePic 4s ease-in-out infinite;
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@keyframes floatProfilePic {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+        box-shadow: 0 25px 45px rgba(0, 210, 211, 0.4);
+    }
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   --- 5. TECHNICAL SKILLS GRID ---
+   ========================================================================== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+    .skills-grid > div {
+        background-color: var(--bg-card);
+        padding: 40px;
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        transition: transform 0.3s ease;
+    }
+
+        .skills-grid > div:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-accent);
+        }
+
+    .skills-grid h3 {
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+        color: var(--color-accent);
+    }
+
+    .skills-grid li::before {
+        content: '→';
+        color: var(--color-accent);
+        margin-right: 10px;
+        font-weight: bold;
+    }
+
+/* ==========================================================================
+   --- 6. MAP GALLERY ---
+   ========================================================================== */
+.map-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+    .map-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--color-accent);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    }
+
+/* ==========================================================================
+   --- 7. CONTACT & FOOTER ---
+   ========================================================================== */
+footer {
+    padding: 40px;
+    background: #15181d; /* Slightly darker than body for contrast */
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   --- 8. RESPONSIVE ---
+   ========================================================================== */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+/* --- 2. GLOBAL STYLES & VARIABLES --- */
+:root {
+    /* Ni-retain natin ang colors pero gagamit tayo ng image sa background */
+    --bg-body: #1e2227;
+    --bg-card: rgba(40, 45, 53, 0.9); /* Ginawang semi-transparent para mas modern */
+    --bg-nav: rgba(30, 34, 39, 0.95);
+    --color-accent: #00d2d3;
+    --color-accent-hover: #00a8a8;
+    --text-primary: #ffffff;
+    --text-secondary: #cbd5e0;
+    --font-main: 'Roboto', sans-serif;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+body {
+    /* Dito natin ilalagay ang image mo */
+    /* Siguraduhin na tama ang filename: pngtree-minimalist-geometric-pixel-mosaic...jpg */
+    background: linear-gradient(rgba(30, 34, 39, 0.8), rgba(30, 34, 39, 0.8)), url('pngtree-minimalist-geometric-pixel-mosaic-a-clean-background-with-elegant-3d-illustration-image_3794651.jpg');
+    background-size: cover;
+    background-attachment: fixed; /* Para naka-pako ang background habang nag-scroll ka */
+    background-position: center;
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   --- 4. HERO SECTION ---
+   ========================================================================== */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    padding-top: 140px;
+    /* Tinanggal ang radial gradient para lumitaw ang background image ng body */
+    background: transparent;
+}
+
+/* Dagdag na touch: Gawin nating glassmorphism ang mga cards para kita ang background sa likod */
+.skills-grid > div, .job, .map-card {
+    background-color: var(--bg-card);
+    backdrop-filter: blur(5px); /* Blur effect sa likod ng cards */
+    border: 1px solid var(--border-color);
+}
